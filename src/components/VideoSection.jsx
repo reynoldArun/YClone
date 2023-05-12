@@ -1,13 +1,13 @@
 import { useQuery } from "react-query"
 import { useSelector } from "react-redux"
-import { fetchFromApi } from '../util/rapidApi'
+import { fetch } from '../util/rapidApi'
 import {Link} from 'react-router-dom'
 
 export default function VideoSection() {
   const {category} = useSelector((state) => state.GlobalState)
   const fetchVideos = async() => {
     try {
-      const result = await fetchFromApi(`search?part=snippet&q=${category}`)
+      const result = await fetch(`search?part=snippet&q=${category}`)
       return result.items
     } catch (error) {
       console.log(error)

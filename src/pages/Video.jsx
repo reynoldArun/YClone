@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
-import { fetchFromApi } from "../util/rapidapi";
+import {fetch} from '../util/rapid'
 import ReactPlayer from "react-player";
 
 export default function VideoComponent() {
@@ -9,10 +9,10 @@ export default function VideoComponent() {
   const [recommended, setRecommended] = useState(null)
 
   useEffect(() => {
-    fetchFromApi(`videos?part=snippet,statistics&id=${id}`)
+    fetch(`videos?part=snippet,statistics&id=${id}`)
       .then((data) => setVideoDetails(data.items[0]))
 
-      fetchFromApi(`search?part=snippet&relatedToVideoId=${id}&type=video`)
+      fetch(`search?part=snippet&relatedToVideoId=${id}&type=video`)
       .then((data) => setRecommended(data.items))
   }, [id]);
 
