@@ -1,7 +1,6 @@
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { useEffect, useState } from "react";
-import { fetchFromApi } from "../util/rapidapi";
-import { useQuery } from "react-query";
+import { fetch } from "../util/rapid";
 import useDebounce from '../util/useDebounce'
 
 export default function SearchBar() {
@@ -17,7 +16,7 @@ export default function SearchBar() {
       setOpen(false)
       return;
     }
-    fetchFromApi(`search?part=snippet&q=${search}`)
+    fetch(`search?part=snippet&q=${search}`)
       .then((data) => setsearchResult(data.items), setOpen(true))
   }, [debouncedSearch]);
 

@@ -1,6 +1,6 @@
 import { useQuery } from "react-query"
 import { useSelector } from "react-redux"
-import { fetch } from '../util/rapidApi'
+import {fetch} from '../util/rapid'
 import {Link} from 'react-router-dom'
 
 export default function VideoSection() {
